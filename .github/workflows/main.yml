@@ -6,23 +6,24 @@ on:
  workflow_dispatch: # Allows manual trigger
  
 jobs:
- post_json:
-  runs-on: ubuntu-latest
-  steps:
-   - name: Checkout Repository
-    uses: actions/checkout@v3
-   - name: Send JSON Data to First URL
-    run: |
-     curl -X POST "https://:5w9Z8XX6TfiA81HUEC7-Qw@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAKQPYiOdd0Jur79y0DXD7PgAAAAA" \
-       -H "Content-Type: application/json" \
-       -d @stream.json
-   - name: Send JSON Data to Second URL
-    run: |
-     curl -X POST "https://:qzjdbK6GSeSpIu0A6ilUCA@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAAXeSdo_6kBknYyOqnpQVQMAAAAA" \
-       -H "Content-Type: application/json" \
-       -d @stream.json
-   - name: Send JSON Data to Third URL
-    run: |
-     curl -X POST "https://:oqkm9YglTf6X2CWGiINL_A@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAB-RlbrV1U2LmXZsEe8a6rYAAAAA" \
-       -H "Content-Type: application/json" \
-       -d @stream.json       
+  post_json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Send JSON Data to First URL
+        run: |
+          curl -X POST "https://:5w9Z8XX6TfiA81HUEC7-Qw@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAKQPYiOdd0Jur79y0DXD7PgAAAAA" \
+               -H "Content-Type: application/json" \
+               -d @stream.json
+      - name: Send JSON Data to Second URL
+        run: |
+          curl -X POST "https://:qzjdbK6GSeSpIu0A6ilUCA@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAAXeSdo_6kBknYyOqnpQVQMAAAAA" \
+               -H "Content-Type: application/json" \
+               -d @stream.json
+      - name: Send JSON Data to Third URL
+        run: |
+          curl -X POST "https://:oqkm9YglTf6X2CWGiINL_A@tandem.autodesk.com/api/v1/timeseries/models/urn:adsk.dtm:bp_vbLoURLixFUjO6EDnnQ/streams/AQAAAB-RlbrV1U2LmXZsEe8a6rYAAAAA" \
+               -H "Content-Type: application/json" \
+               -d @stream.json       
